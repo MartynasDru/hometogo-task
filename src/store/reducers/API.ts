@@ -5,6 +5,8 @@ const initialState = {
     apiData: [],
     apiStatus: 'IDLE',
     selectedCharactersCounter: 0,
+    totalApiCheckboxes: 0,
+    totalCheckedApiCheckboxes: 0,
 }
 
 const getApiData = ( state: any, action: any ) => { 
@@ -22,18 +24,10 @@ const refreshApiStat = ( state: any, action: any ) => {
     }    
 }
 
-const apiToggle = ( state: any, action: any ) => {
-    if ( !state.checkboxChecked ) {
-        return {
-            ...state,
-            activeApi: 'https://swapi.co/api/people/',
-            checkboxChecked: true,
-        }
-    }
+const chooseActiveApi = ( state: any, action: any ) => {
     return {
         ...state,
-        activeApi: 'https://www.potterapi.com/v1/characters?key=$2a$10$RDOy0Oq7X37GAiofYSpmCucISSOTOnXGHtrdj0EtqnKKuAoMSi4te',
-        checkboxChecked: false,
+        activeApi: action.activeApi,
     }
 }
 
@@ -44,12 +38,28 @@ const countCheckboxes = ( state: any, action: any ) => {
     }
 }
 
+const checkedApisCntr = ( state: any, action: any ) => {
+    return {
+        ...state,
+        totalCheckedApiCheckboxes: action.totalCheckedApiCheckboxes,
+    }
+}
+
+const apisCounter = ( state: any, action: any ) => {
+    return {
+        ...state,
+        totalApiCheckboxes: action.totalApiCheckboxes,
+    }
+}
+
 const reducer = ( state = initialState, action: any ) => {
     switch ( action.type ) {
         case actionTypes.FETCH_API_DATA: return getApiData( state, action );
         case actionTypes.REFRESH_API_STATUS: return refreshApiStat( state, action );
-        case actionTypes.CHANGE_API: return apiToggle( state, action );
         case actionTypes.SELECTED_CHARACTERS_COUNTER: return countCheckboxes( state, action );
+        case actionTypes.CHECKED_APIS_COUNTER: return checkedApisCntr( state, action ); 
+        case actionTypes.APIS_COUNTER: return apisCounter( state, action );
+        case actionTypes.CHOOSE_ACTIVE_API: return chooseActiveApi( state, action );
         default: return state;
     }
 }
