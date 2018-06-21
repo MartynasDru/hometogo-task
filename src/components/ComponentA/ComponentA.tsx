@@ -7,11 +7,13 @@ import * as actionCreators from '../../store/actions/API';
 
 interface IComponentAProps { 
     onFetchApiData: ( apiUrl: string ) => any;
+    onCountSelectedCharacters: ( counter: number ) => any;
     activeApi: string;
 }
 
 const ComponentA: React.SFC<IComponentAProps> = (props) => {
     const handleClick = () => {
+        props.onCountSelectedCharacters( 0 );
         props.onFetchApiData( props.activeApi );
     }
     return (
@@ -25,7 +27,8 @@ const mapStateToProps = ( state: any ) => ({
 
 const mapDispatchToProps = ( dispatch: any) => {
     return {
-        onFetchApiData: ( apiUrl: string ) => (dispatch(actionCreators.fetchApiData( apiUrl )))
+        onCountSelectedCharacters: ( counter: number ) => (dispatch(actionCreators.checkboxesCounter( counter ))),
+        onFetchApiData: ( apiUrl: string ) => (dispatch(actionCreators.fetchApiData( apiUrl ))),
     }
 }
 

@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/API';
 
 interface IComponentBProps { 
-    onChangeApi: () => any;
+    onChooseActiveApi: () => any;
 }
 
 const ComponentA: React.SFC<IComponentBProps> = (props) => {
     const handleCheckbox = () => {
-        props.onChangeApi();
+        props.onChooseActiveApi();
     }
 
     return (
@@ -19,7 +19,7 @@ const ComponentA: React.SFC<IComponentBProps> = (props) => {
 
 const mapDispatchToProps = ( dispatch: any ) => {
     return {
-        onChangeApi: () => (dispatch(actionCreators.changeApi()))
+        onChooseActiveApi: () => (dispatch(actionCreators.chooseApi())),
     }
 }
 
