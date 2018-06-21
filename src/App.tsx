@@ -53,7 +53,7 @@ class App extends React.Component<IAppProps> {
                 {AComponents}
                 {DComponents}
             </div>
-            {CComponents}
+            { this.props.apiStatus === 'LOADED' ? CComponents : null }
             <ComboBox />
         </div>
         );
