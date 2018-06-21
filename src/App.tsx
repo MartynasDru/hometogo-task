@@ -9,15 +9,21 @@ import ComponentB from './components/ComponentB/ComponentB';
 import ComponentC from './components/ComponentC/ComponentC';
 import ComponentD from './components/ComponentD/ComponentD';
 
-interface IReduxProps {
+import * as actionCreators from './store/actions/API';
+
+interface IAppProps {
   apiStatus: string;
   componentACounter: number;
   componentBCounter: number;
   componentCCounter: number;
   componentDCounter: number;
+  onChooseActiveApi: () => any;
 }
 
-class App extends React.Component<IReduxProps> {
+class App extends React.Component<IAppProps> {
+    public componentDidUpdate() {
+        this.props.onChooseActiveApi();
+    }
     public render() {
         const AComponents = [];
         const BComponents = [];
@@ -62,4 +68,10 @@ const mapStateToProps = ( state: any ) => ({
     componentDCounter: state.comboBox.componentDCounter,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = ( dispatch: any) => {
+    return {
+        onChooseActiveApi: () => (dispatch(actionCreators.chooseApi())),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

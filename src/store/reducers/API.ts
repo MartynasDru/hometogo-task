@@ -5,8 +5,6 @@ const initialState = {
     apiData: [],
     apiStatus: 'IDLE',
     selectedCharactersCounter: 0,
-    totalApiCheckboxes: 0,
-    totalCheckedApiCheckboxes: 0,
 }
 
 const getApiData = ( state: any, action: any ) => { 
@@ -38,27 +36,11 @@ const countCheckboxes = ( state: any, action: any ) => {
     }
 }
 
-const checkedApisCntr = ( state: any, action: any ) => {
-    return {
-        ...state,
-        totalCheckedApiCheckboxes: action.totalCheckedApiCheckboxes,
-    }
-}
-
-const apisCounter = ( state: any, action: any ) => {
-    return {
-        ...state,
-        totalApiCheckboxes: action.totalApiCheckboxes,
-    }
-}
-
 const reducer = ( state = initialState, action: any ) => {
     switch ( action.type ) {
         case actionTypes.FETCH_API_DATA: return getApiData( state, action );
         case actionTypes.REFRESH_API_STATUS: return refreshApiStat( state, action );
         case actionTypes.SELECTED_CHARACTERS_COUNTER: return countCheckboxes( state, action );
-        case actionTypes.CHECKED_APIS_COUNTER: return checkedApisCntr( state, action ); 
-        case actionTypes.APIS_COUNTER: return apisCounter( state, action );
         case actionTypes.CHOOSE_ACTIVE_API: return chooseActiveApi( state, action );
         default: return state;
     }

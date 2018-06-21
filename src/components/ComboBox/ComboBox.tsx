@@ -20,12 +20,11 @@ const ComboBox: React.SFC<IComboBoxProps> = (props) => {
     return (
         <div>
             <select className="comboBox" style={{
-                borderRadius: '50px',
                 fontSize: '16px',
                 height: '30px',
                 margin: '0 10px',
             }}>
-                <option value="SELECT">Select component</option>
+                <option value="SELECT">Select</option>
                 <option value="A">Component A</option>
                 <option value="B">Component B</option>
                 <option value="C">Component C</option>
@@ -47,7 +46,7 @@ const ComboBox: React.SFC<IComboBoxProps> = (props) => {
 
 const mapDispatchToProps = ( dispatch: any) => {
     return {
-        onAddComponent: ( componentType: string ) => dispatch(actionCreators.addComponent( componentType ))
+        onAddComponent: ( componentType: string ) => dispatch(actionCreators.addComponent( componentType )),
     }
 }
 

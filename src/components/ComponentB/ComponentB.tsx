@@ -8,12 +8,12 @@ interface IComponentBProps {
 }
 
 const ComponentA: React.SFC<IComponentBProps> = (props) => {
-    const handleCheckbox = () => {
+    const handleChooseActiveApi = () => {
         props.onChooseActiveApi();
     }
 
     return (
-        <input type="checkbox" onChange={handleCheckbox} />
+        <input type="checkbox" onChange={handleChooseActiveApi} />
     );
 }
 
