@@ -3,6 +3,7 @@ import './App.css';
 
 import { connect } from 'react-redux';
 
+import ComboBox from './components/ComboBox/ComboBox';
 import ComponentA from './components/ComponentA/ComponentA';
 import ComponentB from './components/ComponentB/ComponentB';
 import ComponentC from './components/ComponentC/ComponentC';
@@ -23,6 +24,7 @@ class App extends React.Component<IReduxProps> {
         <ComponentA />
         <ComponentD />
         <ComponentC />
+        <ComboBox />
       </div>
     );
   }
