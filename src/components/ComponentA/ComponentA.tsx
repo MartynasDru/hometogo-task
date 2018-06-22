@@ -27,7 +27,7 @@ const mapStateToProps = ( state: any ) => ({
 
 const mapDispatchToProps = ( dispatch: any) => {
     return {
-        onCountSelectedCharacters: ( counter: number ) => (dispatch(actionCreators.checkboxesCounter( counter ))),
+        onCountSelectedCharacters: ( counter: number ) => (dispatch(actionCreators.selectedCharactersCounter( counter ))),
         onFetchApiData: ( apiUrl: string ) => (dispatch(actionCreators.fetchApiData( apiUrl ))),
     }
 }

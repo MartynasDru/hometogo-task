@@ -49,7 +49,7 @@ const mapStateToProps = ( state: any ) => ({
 
 const mapDispatchToProps = ( dispatch: any ) => {
     return {
-        onCountSelectedCharacters: ( count: number ) => (dispatch(actionCreators.checkboxesCounter( count )))
+        onCountSelectedCharacters: ( count: number ) => (dispatch(actionCreators.selectedCharactersCounter( count )))
     }
 }
 

@@ -39,7 +39,7 @@ export const fetchApiData = ( apiUrl: string ) => {
     }
 }
 
-export const checkboxesCounter = ( count: number ) => {
+export const selectedCharactersCounter = ( count: number ) => {
     return {
         selectedCharactersCounter: count,
         type: actionTypes.SELECTED_CHARACTERS_COUNTER,
