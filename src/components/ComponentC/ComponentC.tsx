@@ -16,6 +16,9 @@ const ComponentC: React.SFC<IComponentCProps> = (props) => {
         const totalSelectedCharacters = document.querySelectorAll('.characters-list__character--selection input[type="checkbox"]:checked').length;
         props.onCountSelectedCharacters( totalSelectedCharacters );
     }
+    const handleListItemButton = () => {
+        alert('Clicked list item button');
+    }
     const generateMovieCharacters = props.apiData.map( ( character: any, index: number ) => {
         return (
             <li className="characters-list__character" key={index}>
@@ -24,10 +27,14 @@ const ComponentC: React.SFC<IComponentCProps> = (props) => {
                 </span>
                 <span className="characters-list__character--selection">
                     <input onChange={handleCounter} style={{fontSize: '20px'}} type="checkbox" />
-                    <button style={{
-                        border: '1px solid #aaaaaa',
-                        textTransform: 'uppercase',
-                    }} >Select</button>
+                    <button 
+                        style={{
+                            border: '1px solid #aaaaaa',
+                            textTransform: 'uppercase',
+                        }}
+                        onClick={handleListItemButton}>
+                        Select
+                    </button>
                 </span>
             </li>
         );
