@@ -7,7 +7,7 @@ interface IComponentBProps {
     onChooseActiveApi: () => any;
 }
 
-const ComponentA: React.SFC<IComponentBProps> = (props) => {
+const ComponentB: React.SFC<IComponentBProps> = (props) => {
     const handleChooseActiveApi = () => {
         props.onChooseActiveApi();
     }
@@ -23,4 +23,4 @@ const mapDispatchToProps = ( dispatch: any ) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ComponentA);
+export default connect(null, mapDispatchToProps)(ComponentB);
